@@ -41,9 +41,9 @@ Created: October 4, 2024 2:55 PM
 
 - Airflow Task Lifecycle
 
-![Screenshot 2024-10-02 at 12.13.36 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/41adc6b9-12ce-46f9-adb0-f5b5716ebe59.png)
+![DAG Example](images/image-03.png)
 
-![Screenshot 2024-10-02 at 12.19.39 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/c0e1d843-69b9-4ade-85f4-e23551f22ffa.png)
+![DAG Example](images/image-04.png)
 
 No status: Scheduler created empty task instance
 
@@ -63,7 +63,7 @@ Up for reschedule: reschedule task every certain time interval
 
 - Basic Architecture
 
-![Screenshot 2024-10-02 at 11.46.39 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/84db0da2-13fe-477f-98b0-a90c6249fe43.png)
+![DAG Example](images/image-05.png)
 
 ## Run Airflow 2.0 in docker container
 
@@ -72,7 +72,7 @@ Up for reschedule: reschedule task every certain time interval
 3. Checking if the docker community edition & the docker compose version working fine.
     
     
-    ![Screenshot 2024-10-06 at 12.34.52 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-06_at_12.34.52_AM.png)
+    ![DAG Example](images/image-06.2.png)
     
 4. Fetching the docker-compose.yaml file 
 
@@ -82,7 +82,7 @@ curl -LfO '[https://airflow.apache.org/docs/apache-airflow/2.10.4/docker-compose
 
 1. The docker-compose.yaml file will show up on directory.
 
-![Screenshot 2024-10-06 at 12.37.29 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/cf2a6635-98cb-414c-b929-06c9f6f8eb1d.png)
+![DAG Example](images/image-06.png)
 
 1. Editing the yaml file AIRFLOW_CORE_EXECUTOR from CeleryExecutor to LocalExecutor. Deleting not needed lines such:
 
@@ -103,7 +103,7 @@ docker-compose down
 
 1. Copying the first line and run it on terminal. Second line is for linux user, as I am currently using mac, I don’t need to run it.
     
-    ![Screenshot 2024-10-06 at 2.20.12 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-06_at_2.20.12_AM.png)
+    ![DAG Example](images/image-07.png)
     
 
 1. Initializing the database
@@ -114,7 +114,7 @@ docker-compose up airflow-init
 
 1. If you get this output, that means the airflow initialization is complete.
     
-    ![Screenshot 2024-10-12 at 1.48.06 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_1.48.06_AM.png)
+    ![DAG Example](images/image-08.png)
     
 
 1. Running the Airflow
@@ -125,7 +125,7 @@ docker-compose up -d
 
 The output might look like this:
 
-![Screenshot 2024-10-12 at 1.49.43 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_1.49.43_AM.png)
+![DAG Example](images/image-09.png)
 
 1. To check what containers are running in the background,
 
@@ -135,28 +135,28 @@ docker ps
 
 The output should look like:
 
-![Screenshot 2024-10-12 at 1.50.35 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_1.50.35_AM.png)
+![DAG Example](images/image-10.png)
 
 Meaning the airflow-webserver, airflow-scheduler and postgres database is running.
 
 **Launching it using the Load Balancer**
 
-![Screenshot 2024-11-20 at 8.47.51 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-11-20_at_8.47.51_PM.png)
+![DAG Example](images/image-11.png)
 
 1. Try getting the ip of your local machine using the command.
     
-    ![Screenshot 2024-11-20 at 8.48.41 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-11-20_at_8.48.41_PM.png)
+    ![DAG Example](images/image-12.png)
     
 2. Create Load Balancer and launch it.
     
-    ![Screenshot 2024-11-20 at 8.49.13 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-11-20_at_8.49.13_PM.png)
+    ![DAG Example](images/image-13.png)
     
 
 ## Creating first DAG with BashOperator
 
 1. After logging in to the Apache Airflow using [http://localhost:8080/home](http://localhost:8080/home), the dashboard is filled with example dags.
     
-    ![Screenshot 2024-10-12 at 2.18.43 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/f1876ec3-6686-4faa-857a-3bb31972b389.png)
+    ![DAG Example](images/image-14.png)
     
 
 1. To remove them following steps are needed to be taken:
@@ -167,21 +167,21 @@ docker-compose down -v
 
 - will show this output
     
-    ![Screenshot 2024-10-12 at 2.19.47 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_2.19.47_AM.png)
+    ![DAG Example](images/image-15.png)
     
 - Change the AIRFLOW_CORE_LOAD_EXAMPLE from “true” to “false” in the yaml file.
     
-    ![Screenshot 2024-10-12 at 2.20.11 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_2.20.11_AM.png)
+    ![DAG Example](images/image-16.png)
     
 
 - Then reinitialize the database as did before. Will get output like this.
     
-    ![Screenshot 2024-10-12 at 2.23.29 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/d78faf2f-9fa0-4c71-adab-7cabf12d0dcc.png)
+    ![DAG Example](images/image-17.1.png)
     
 
 1. Open a new file on “dag” folder.
 
-![Screenshot 2024-10-12 at 3.02.25 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_3.02.25_AM.png)
+![DAG Example](images/image-18.png)
 
 1. The code to create the first dag
 
@@ -212,11 +212,11 @@ with DAG(
 
 1. After a successful creation of DAG, it might look like this in the airflow dag dashboard.
 
-![Screenshot 2024-10-12 at 2.58.47 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_2.58.47_AM.png)
+![DAG Example](images/image-19.png)
 
 The grid view
 
-![Screenshot 2024-10-12 at 3.30.32 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/52a0d8f3-8fc2-4600-84d2-4704f141e9c2.png)
+![DAG Example](images/image-20.png)
 
 1. Creating the second dag will be another easy task, using the same code with some changes.
 
@@ -251,12 +251,12 @@ with DAG(
 
 1. After running it, the airflow output will be seen like this
     
-    ![Screenshot 2024-10-12 at 3.30.49 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/3d56d8f8-d82f-4ee4-a35e-5e1850e2106f.png)
+    ![DAG Example](images/image-21.png)
     
 
 1. In the grid view
     
-    ![Screenshot 2024-10-12 at 3.29.57 AM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/4a5b5c8d-c55d-4360-b011-27df6b1a8a95.png)
+    ![DAG Example](images/image-22.png)
     
 
 ## Creating DAG using python operator
@@ -294,7 +294,7 @@ with DAG(
 
 1. After running the code and refreshing the DAG dashboard, our first dag with python operator is created!
     
-    ![Screenshot 2024-10-12 at 2.14.25 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_2.14.25_PM.png)
+    ![DAG Example](images/image-23.png)
     
 
 > When we want to share informations between tasks, we got to use XCom. Basically we can push information in one task and push that information in other task. Here is how to do it.
@@ -342,7 +342,7 @@ with DAG(
 
 1. DAG creation done.
 
-![Screenshot 2024-10-12 at 2.36.20 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_2.36.20_PM.png)
+![DAG Example](images/image-24.png)
 
 ## Creating DAG with Taskflow API
 
@@ -451,11 +451,11 @@ with DAG(
     )
 ```
 
-![Screenshot 2024-10-12 at 3.58.18 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/b7decbc2-2807-4c8b-9bc2-c1bd9b12dfb2.png)
+![DAG Example](images/image-25.png)
 
 The DAG has started since October 1st, 2024 and restarting once in everyday.
 
-![Screenshot 2024-10-12 at 4.05.17 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_4.05.17_PM.png)
+![DAG Example](images/image-26.png)
 
 ```python
 with DAG(
@@ -468,7 +468,7 @@ with DAG(
 
 You can change the catchup to False to make it backfill, update the version and run it.
 
-![Screenshot 2024-10-12 at 4.06.17 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/4332fbba-d717-4e77-8a05-ca6933b4572f.png)
+![DAG Example](images/image-27.png)
 
 You can still run the DAG using backfill. To know how follow the following steps,
 
@@ -478,7 +478,7 @@ You can still run the DAG using backfill. To know how follow the following steps
 docker ps
 ```
 
-![Screenshot 2024-10-12 at 4.12.35 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_4.12.35_PM.png)
+![DAG Example](images/image-28.png)
 
 1. Copy the scheduler id and run this command
 
@@ -500,28 +500,28 @@ airflow dags backfill -s 2024-10-01 -e 2024-10-08
 
 1. exit command to exit the container. Will see dag run from the starting date to end date.
     
-    ![Screenshot 2024-10-12 at 3.58.18 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/dcfd69dd-618a-4b71-b2eb-363eccf03905.png)
+    ![DAG Example](images/image-29.png)
     
 
 The code in dag dashboard.
 
-![Screenshot 2024-10-12 at 4.22.01 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_4.22.01_PM.png)
+![DAG Example](images/image-30.png)
 
 ## Scheduling with Cron Expression
 
 In Airflow, creating a DAG needs a schedule interval parameter. Which receives Cron Expression as String or datetime.timedelta as Object.
 
-![Screenshot 2024-10-12 at 4.26.29 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_4.26.29_PM.png)
+![DAG Example](images/image-31.png)
 
 **What is a CRON Expression?**
 
 A CRON expression is a string comprising five fields separated by white space that represents a set of times. Normally as a schedule to execute some routine.
 
-![Screenshot 2024-10-12 at 4.30.08 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_4.30.08_PM.png)
+![DAG Example](images/image-32.png)
 
 Airflow already provides some presets for CRON expression. 
 
-![Screenshot 2024-10-12 at 4.31.01 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_4.31.01_PM.png)
+![DAG Example](images/image-33.png)
 
 But if you want to generate customised CRON expressions, you can make it in this website.
 
@@ -529,16 +529,16 @@ But if you want to generate customised CRON expressions, you can make it in this
 
 ## Airflow connection to connect Postgres
 
-![Screenshot 2024-10-12 at 4.39.05 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_4.39.05_PM.png)
+![DAG Example](images/image-34.png)
 
 - Go to the Admin > Connection > Add connection.
     
-    ![Screenshot 2024-10-12 at 8.54.48 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_8.54.48_PM.png)
+    ![DAG Example](images/image-35.png)
     
 
 - Change the yaml file, add port.
     
-    ![Screenshot 2024-10-12 at 5.48.08 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_5.48.08_PM.png)
+    ![DAG Example](images/image-36.png)
     
 
 - Download dbeaver and install it from here.
@@ -553,7 +553,7 @@ docker-compose up -d —no-deps —build postgres
 
 - After completation the output would look like,
     
-    ![Screenshot 2024-10-12 at 5.50.00 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_5.50.00_PM.png)
+    ![DAG Example](images/image-37.png)
     
 
 - Open new file and run this code.
@@ -593,12 +593,12 @@ with DAG(
 
 - Save it and run it, it will show a new DAG in the dashboard.
     
-    ![Screenshot 2024-10-12 at 9.05.52 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_9.05.52_PM.png)
+    ![DAG Example](images/image-38.png)
     
 
 - The grid view
     
-    ![Screenshot 2024-10-12 at 9.06.10 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_9.06.10_PM.png)
+    ![DAG Example](images/image-39.png)
     
 
 - To insert informations to table add this bit of code and fix their task dependencies.
@@ -631,7 +631,7 @@ task3= PostgresOperator(
 
 - Open the docker project folder and open a new file “requirements.txt”.
     
-    ![Screenshot 2024-10-12 at 9.41.17 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_9.41.17_PM.png)
+    ![DAG Example](images/image-40.png)
     
 
 - Create a docker file in project root folder and give it as input
@@ -651,7 +651,7 @@ docker build . --tag extending_airflow:latest
 
 Issue:
 
-![Screenshot 2024-10-12 at 11.05.55 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-10-12_at_11.05.55_PM.png)
+![DAG Example](images/image-41.png)
 
 Solution:
 
@@ -697,7 +697,7 @@ with DAG(
 
 While scheduling tasks in airflow, sometimes there is a need of workflow to branch, or go through a certain path based on arbitrary condition. This is where the use of BranchPythonOperator comes for solution.
 
-![Screenshot 2024-12-14 at 15.56.47.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/fcd95cd7-2927-42fa-8b4b-0b615f825c7e.png)
+![DAG Example](images/image-42.png)
 
 ```python
 from airflow import DAG
@@ -740,17 +740,17 @@ The code snippet defines a function where a condition of accuracy is given. If t
 
 Defining a function is a must thing to do here in branching. Otherwise it will send error for python_callable.
 
-![Screenshot 2024-12-14 at 15.28.53.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-14_at_15.28.53.png)
+![DAG Example](images/image-43.png)
 
 If everything is done right it will show this as result:
 
-![Screenshot 2024-12-14 at 15.35.14.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-14_at_15.35.14.png)
+![DAG Example](images/image-44.png)
 
 ### SubDags:
 
 When adding exactly same set of tasks regularly to every DAG, or to group several tasks into a single logical unit, the use of SubDAGs arise.
 
-![Screenshot 2024-12-15 at 21.58.18.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-15_at_21.58.18.png)
+![DAG Example](images/image-45.png)
 
 The creation SubDAGs are divided into three phases.
 
@@ -827,13 +827,13 @@ with DAG(
 
 The output shows parent DAGs which consists the child DAGs in it.
 
-![Screenshot 2024-12-15 at 22.31.04.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-15_at_22.31.04.png)
+![DAG Example](images/image-46.png)
 
 ### TaskGroups:
 
 TaskGroups work similarly as SubDAGs, but with time TaskGroups has taken over SubDAGs with it’s efficiency and reliable behaviours.
 
-![Screenshot 2024-12-15 at 22.21.27.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-15_at_22.21.27.png)
+![DAG Example](images/image-47.png)
 
 We have divided the TaskGroup in few steps for better understanding of it.
 
@@ -877,7 +877,7 @@ start >> a >> a1 >> b >> c >> d >> e >> f >> g >> end
 
 Which led us to get this output.
 
-![Screenshot 2024-12-15 at 21.07.53.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-15_at_21.07.53.png)
+![DAG Example](images/image-48.png)
 
 Then, the Empty Operators (a, a1, b and c) are taken into a single group named gr_1. And we also have set the task dependencies for a and a1, where the other two tasks are independent.
 
@@ -894,19 +894,19 @@ start >> gr_1 >> d >> e >> f >> g >> end
 
 The output will change to this:
 
-![Screenshot 2024-12-15 at 21.13.21.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-15_at_21.13.21.png)
+![DAG Example](images/image-49.png)
 
 And by clicking on the A-A1 task, we get the full view of the operations that’s happening within this.
 
-![Screenshot 2024-12-15 at 21.13.36.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-15_at_21.13.36.png)
+![DAG Example](images/image-50.png)
 
 ## XComs:
 
 XComs stands for cross communication and helps you to share messages and small amount of datas between tasks. An object where the value you want to exchange is stored inside the meta database of Airflow. So each time you are interacting with the XComs, you are interacting with the database of airflow. XComs mainly consists two arguments: Return_key which is the identity and Value, which holds the variable.
 
-![Screenshot 2024-12-18 at 23.49.22.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-18_at_23.49.22.png)
+![DAG Example](images/image-51.png)
 
-![Screenshot 2024-12-18 at 23.46.07.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-18_at_23.46.07.png)
+![DAG Example](images/image-52.png)
 
 For the purpose of learning, we can think of these DAGs where best of these three models will be chosen. When we process the values of three models and find an answer we push the value to XComs to send it to the next task.
 
@@ -958,11 +958,11 @@ with DAG(
 
 The DAGs will be created:
 
-![Screenshot 2024-12-18 at 20.59.45.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-18_at_20.59.45.png)
+![DAG Example](images/image-53.png)
 
 We can check the XComs from the Action tab.
 
-![Screenshot 2024-12-18 at 21.01.16.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-18_at_21.01.16.png)
+![DAG Example](images/image-54.png)
 
 You can also push the XComs with your preferred return_key. To do that some slight changes like you need to access the task instance argument, which helps you to create a XCom with parameters key and value. 
 
@@ -973,7 +973,7 @@ def training_model(task_instance):
     task_instance.xcom_push(key='model_accuracy', value=accuracy)
 ```
 
-![Screenshot 2024-12-18 at 21.08.34.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/Screenshot_2024-12-18_at_21.08.34.png)
+![DAG Example](images/image-55.png)
 
 **To call a XCom value in any function,**
 
