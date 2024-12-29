@@ -33,11 +33,11 @@ Created: October 4, 2024 2:55 PM
 
 - DAG(Directed Acyclic Graph), Task, Operator
 
-![Screenshot 2024-10-04 at 3.00.12 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/a7ea4380-eb64-4930-97de-655235d2481c.png)
+![DAG Example](images/image-01.png)
 
 - Execution Date, Task Instance, Dag Run
 
-![Screenshot 2024-10-02 at 12.10.07 PM.png](Introduction%20to%20Apache%20Airflow%20115d4718bce880f0981dea9746a2826a/745838b0-0a39-40ff-94d9-a4ed4ede970a.png)
+![DAG Example](images/image-02.png)
 
 - Airflow Task Lifecycle
 
